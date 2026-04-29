@@ -1,6 +1,14 @@
 [gd_scene format=3 uid="uid://kpt84414qapa"]
 
 [ext_resource type="PackedScene" uid="uid://b0w4joxr8ocih" path="res://Scenes/player.tscn" id="1_eea4h"]
+[ext_resource type="Script" uid="uid://cdjsdq3r5g3g3" path="res://Scenes/egipcian.gd" id="2_1x6pq"]
+[ext_resource type="Texture2D" uid="uid://c7o2earepei4n" path="res://icon.svg" id="3_8jbqy"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_oeanm"]
+distance = -294.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d1vy0"]
+radius = 57.00877
 
 [node name="Egypt" type="Node2D" unique_id=1640421484]
 
@@ -11,3 +19,55 @@ color = Color(0.8235294, 0.3764706, 0, 0.8352941)
 
 [node name="Player" parent="." unique_id=448040387 instance=ExtResource("1_eea4h")]
 position = Vector2(95, 81)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1583558321]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=827711103]
+shape = SubResource("WorldBoundaryShape2D_oeanm")
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D" unique_id=954335294]
+offset_left = -1.0
+offset_top = 293.0
+offset_right = 501.0
+offset_bottom = 333.0
+color = Color(0.99607843, 0.5411765, 0.15294118, 1)
+
+[node name="Egipcian" type="Area2D" parent="." unique_id=869788322]
+script = ExtResource("2_1x6pq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Egipcian" unique_id=681341229]
+position = Vector2(422, 231)
+shape = SubResource("CircleShape2D_d1vy0")
+
+[node name="Sprite2D" type="Sprite2D" parent="Egipcian" unique_id=1604913428]
+position = Vector2(421.00003, 256.00003)
+scale = Vector2(0.3203125, 0.515625)
+texture = ExtResource("3_8jbqy")
+
+[node name="Label" type="Label" parent="Egipcian" unique_id=990708415]
+offset_left = 396.00003
+offset_top = 196.0
+offset_right = 451.00003
+offset_bottom = 245.0
+rotation = 0.022944788
+text = "Egipcio
+"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Egipcian" unique_id=1513321918]
+
+[node name="DialogBox" type="Panel" parent="Egipcian/CanvasLayer" unique_id=2118592418]
+visible = false
+offset_left = 341.0
+offset_top = 222.0
+offset_right = 381.0
+offset_bottom = 262.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=764708828]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1755856322]
+offset_right = 1153.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 0)
+
+[connection signal="body_entered" from="Egipcian" to="Egipcian" method="_on_body_entered"]
+[connection signal="body_exited" from="Egipcian" to="Egipcian" method="_on_body_exited"]
