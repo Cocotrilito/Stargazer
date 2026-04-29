@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://kpt84414qapa"]
+
+[ext_resource type="PackedScene" uid="uid://b0w4joxr8ocih" path="res://Scenes/player.tscn" id="1_eea4h"]
+
+[node name="Egypt" type="Node2D" unique_id=1640421484]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=933199518]
+offset_right = 500.0
+offset_bottom = 296.0
+color = Color(0.8235294, 0.3764706, 0, 0.8352941)
+
+[node name="Player" parent="." unique_id=448040387 instance=ExtResource("1_eea4h")]
+position = Vector2(95, 81)

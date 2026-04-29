@@ -50,5 +50,12 @@ offset_right = 45.0
 offset_bottom = -71.0
 text = "Press yada"
 
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2113735897]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=326358869]
+offset_right = 1171.0
+offset_bottom = 649.0
+color = Color(0, 0, 0, 0.47058824)
+
 [connection signal="body_entered" from="Fire" to="Fire" method="_on_body_entered"]
 [connection signal="body_exited" from="Fire" to="Fire" method="_on_body_exited"]
