@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0e48y"]
 size = Vector2(128, 129)
 
-[node name="player" type="Node2D" unique_id=448040387]
+[node name="Player" type="Node2D" unique_id=448040387]
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=2082358213]
 script = ExtResource("1_cvnsp")

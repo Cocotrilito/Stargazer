@@ -1,11 +1,17 @@
 [gd_scene format=3 uid="uid://e3et7mj3w71c"]
 
+[ext_resource type="Script" uid="uid://8km5a5aevkf0" path="res://Scenes/prehistoria.gd" id="1_vdkgi"]
 [ext_resource type="PackedScene" uid="uid://b0w4joxr8ocih" path="res://Scenes/player.tscn" id="1_veicj"]
+[ext_resource type="Script" uid="uid://cfnf2klud1d4w" path="res://Scenes/fire.gd" id="2_ohnt3"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kqgln"]
 distance = -63.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_vdkgi"]
+radius = 132.13629
+
 [node name="Prehistoria" type="Node2D" unique_id=46381524]
+script = ExtResource("1_vdkgi")
 
 [node name="Ground" type="StaticBody2D" parent="." unique_id=110716541]
 position = Vector2(-46, 96)
@@ -22,5 +28,27 @@ offset_right = 430.0
 offset_bottom = 72.0
 color = Color(0.6280156, 0.38854486, 0.16276956, 1)
 
-[node name="player" parent="." unique_id=448040387 instance=ExtResource("1_veicj")]
+[node name="Player" parent="." unique_id=448040387 instance=ExtResource("1_veicj")]
 position = Vector2(78, 14)
+
+[node name="Fire" type="Area2D" parent="." unique_id=1994444179]
+position = Vector2(372, 103)
+script = ExtResource("2_ohnt3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fire" unique_id=1852120020]
+shape = SubResource("CircleShape2D_vdkgi")
+
+[node name="Label" type="Label" parent="Fire" unique_id=1947810619]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Fireeeeee"
+
+[node name="Label2" type="Label" parent="Fire" unique_id=1155410945]
+offset_left = -38.0
+offset_top = -94.0
+offset_right = 45.0
+offset_bottom = -71.0
+text = "Press yada"
+
+[connection signal="body_entered" from="Fire" to="Fire" method="_on_body_entered"]
+[connection signal="body_exited" from="Fire" to="Fire" method="_on_body_exited"]
