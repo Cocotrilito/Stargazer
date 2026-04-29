@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://e3et7mj3w71c"]
+
+[ext_resource type="PackedScene" uid="uid://b0w4joxr8ocih" path="res://Scenes/player.tscn" id="1_veicj"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kqgln"]
+distance = -63.0
+
+[node name="Prehistoria" type="Node2D" unique_id=46381524]
+
+[node name="Ground" type="StaticBody2D" parent="." unique_id=110716541]
+position = Vector2(-46, 96)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=2008768401]
+position = Vector2(233, -29)
+shape = SubResource("WorldBoundaryShape2D_kqgln")
+debug_color = Color(0.8768841, 0.00040949642, 0.83314246, 0.41960785)
+
+[node name="ColorRect" type="ColorRect" parent="Ground" unique_id=281621579]
+offset_left = 57.0
+offset_top = 32.0
+offset_right = 430.0
+offset_bottom = 72.0
+color = Color(0.6280156, 0.38854486, 0.16276956, 1)
+
+[node name="player" parent="." unique_id=448040387 instance=ExtResource("1_veicj")]
+position = Vector2(78, 14)
