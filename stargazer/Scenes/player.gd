@@ -5,6 +5,7 @@ const JUMP_VELOCITY = -400
 
 # galileo
 var has_telescope = false
+var has_launchCode = false
 
 func _physics_process(delta):
 	if not is_on_floor():

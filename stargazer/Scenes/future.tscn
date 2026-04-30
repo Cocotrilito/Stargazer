@@ -1,0 +1,102 @@
+[gd_scene format=3 uid="uid://dn2fuh15ci2u1"]
+
+[ext_resource type="Script" uid="uid://cekgpuwkgsats" path="res://Scenes/future.gd" id="1_di2s4"]
+[ext_resource type="Script" uid="uid://wkelhguudvjj" path="res://Scenes/rocket.gd" id="1_fguyn"]
+[ext_resource type="Texture2D" uid="uid://c7o2earepei4n" path="res://icon.svg" id="1_toh7a"]
+[ext_resource type="PackedScene" uid="uid://b0w4joxr8ocih" path="res://Scenes/player.tscn" id="2_fguyn"]
+[ext_resource type="Script" uid="uid://doyf6rkr0dvg3" path="res://Scenes/launch_code.gd" id="4_x5j4u"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x5j4u"]
+radius = 41.0
+height = 292.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_di2s4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fguyn"]
+radius = 106.16968
+
+[node name="future" type="Node2D" unique_id=387361400]
+script = ExtResource("1_di2s4")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1811580754]
+offset_right = 1162.0
+offset_bottom = 651.0
+color = Color(0.078431375, 0.0627451, 0.32941177, 0.8117647)
+
+[node name="rocket" type="Area2D" parent="." unique_id=347240352]
+script = ExtResource("1_fguyn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="rocket" unique_id=1095756874]
+position = Vector2(548, 484)
+shape = SubResource("CapsuleShape2D_x5j4u")
+
+[node name="Sprite2D" type="Sprite2D" parent="rocket" unique_id=1774958534]
+position = Vector2(548, 494)
+scale = Vector2(0.6484375, 1.96875)
+texture = ExtResource("1_toh7a")
+
+[node name="Label" type="Label" parent="rocket" unique_id=329285807]
+offset_left = 456.0
+offset_top = 495.0
+offset_right = 500.0
+offset_bottom = 518.0
+text = "get in"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="rocket" unique_id=933021203]
+
+[node name="DialogBox" type="Panel" parent="rocket/CanvasLayer" unique_id=327454885]
+offset_left = 450.0
+offset_top = 532.0
+offset_right = 490.0
+offset_bottom = 572.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="rocket/CanvasLayer/DialogBox" unique_id=741434844]
+layout_mode = 0
+offset_left = -22.0
+offset_top = 47.0
+offset_right = 88.0
+offset_bottom = 70.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Ground" type="StaticBody2D" parent="." unique_id=1623346562]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=997576291]
+position = Vector2(2, 651)
+shape = SubResource("WorldBoundaryShape2D_di2s4")
+
+[node name="Player" parent="." unique_id=448040387 instance=ExtResource("2_fguyn")]
+position = Vector2(79, 555)
+
+[node name="launchCode" type="Area2D" parent="." unique_id=1430044485]
+script = ExtResource("4_x5j4u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="launchCode" unique_id=1946026904]
+position = Vector2(1025, 536)
+shape = SubResource("CircleShape2D_fguyn")
+
+[node name="Sprite2D" type="Sprite2D" parent="launchCode" unique_id=1003955794]
+position = Vector2(1006, 556)
+texture = ExtResource("1_toh7a")
+
+[node name="Label" type="Label" parent="launchCode" unique_id=701262351]
+offset_left = 985.0
+offset_top = 467.0
+offset_right = 1025.0
+offset_bottom = 490.0
+text = "LaunchCode"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=994122603]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1502221058]
+offset_left = 2.0
+offset_top = -2.0
+offset_right = 1155.0
+offset_bottom = 650.0
+color = Color(0, 0, 0, 0.043137256)
+metadata/_edit_lock_ = true
+
+[connection signal="body_entered" from="rocket" to="rocket" method="_on_body_entered"]
+[connection signal="body_exited" from="rocket" to="rocket" method="_on_body_exited"]
+[connection signal="body_entered" from="launchCode" to="launchCode" method="_on_body_entered"]
+[connection signal="body_exited" from="launchCode" to="launchCode" method="_on_body_exited"]

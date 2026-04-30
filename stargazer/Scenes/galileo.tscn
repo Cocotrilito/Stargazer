@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://1ne3nep4i5i8"]
 
 [ext_resource type="PackedScene" uid="uid://b0w4joxr8ocih" path="res://Scenes/player.tscn" id="1_3lcnc"]
+[ext_resource type="Script" uid="uid://d3ykoxbegqlpj" path="res://Scenes/galileoSCENE.gd" id="1_niujx"]
 [ext_resource type="Script" uid="uid://ig6ltkun4xnj" path="res://Scenes/telescope.gd" id="2_lb0ug"]
 [ext_resource type="Texture2D" uid="uid://c7o2earepei4n" path="res://icon.svg" id="2_qd2op"]
 [ext_resource type="Script" uid="uid://be2imu7r1t8o3" path="res://Scenes/galileo.gd" id="4_lb0ug"]
@@ -16,6 +17,7 @@ radius = 26.0
 height = 162.0
 
 [node name="galileo" type="Node2D" unique_id=757812251]
+script = ExtResource("1_niujx")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1092492234]
 offset_right = 1165.0
