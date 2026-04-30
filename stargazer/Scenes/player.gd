@@ -3,6 +3,9 @@ extends CharacterBody2D
 const speed = 200.0
 const JUMP_VELOCITY = -400
 
+# galileo
+var has_telescope = false
+
 func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += 980 * delta

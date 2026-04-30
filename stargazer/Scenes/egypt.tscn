@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://kpt84414qapa"]
 
+[ext_resource type="Script" uid="uid://bod70botdpvct" path="res://Scenes/egypt.gd" id="1_8jbqy"]
 [ext_resource type="PackedScene" uid="uid://b0w4joxr8ocih" path="res://Scenes/player.tscn" id="1_eea4h"]
 [ext_resource type="Script" uid="uid://cdjsdq3r5g3g3" path="res://Scenes/egipcian.gd" id="2_1x6pq"]
 [ext_resource type="Texture2D" uid="uid://c7o2earepei4n" path="res://icon.svg" id="3_8jbqy"]
@@ -11,6 +12,7 @@ distance = -294.0
 radius = 57.00877
 
 [node name="Egypt" type="Node2D" unique_id=1640421484]
+script = ExtResource("1_8jbqy")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=933199518]
 offset_right = 500.0
@@ -65,9 +67,11 @@ offset_bottom = 262.0
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=764708828]
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1755856322]
-offset_right = 1153.0
-offset_bottom = 648.0
-color = Color(0, 0, 0, 0)
+offset_left = -18.0
+offset_top = -8.0
+offset_right = 1135.0
+offset_bottom = 640.0
+color = Color(0, 0, 0, 0.21568628)
 
 [connection signal="body_entered" from="Egipcian" to="Egipcian" method="_on_body_entered"]
 [connection signal="body_exited" from="Egipcian" to="Egipcian" method="_on_body_exited"]

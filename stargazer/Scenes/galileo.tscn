@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://1ne3nep4i5i8"]
+
+[ext_resource type="PackedScene" uid="uid://b0w4joxr8ocih" path="res://Scenes/player.tscn" id="1_3lcnc"]
+[ext_resource type="Script" uid="uid://ig6ltkun4xnj" path="res://Scenes/telescope.gd" id="2_lb0ug"]
+[ext_resource type="Texture2D" uid="uid://c7o2earepei4n" path="res://icon.svg" id="2_qd2op"]
+[ext_resource type="Script" uid="uid://be2imu7r1t8o3" path="res://Scenes/galileo.gd" id="4_lb0ug"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lb0ug"]
+distance = -647.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_niujx"]
+radius = 202.41788
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_niujx"]
+radius = 26.0
+height = 162.0
+
+[node name="galileo" type="Node2D" unique_id=757812251]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1092492234]
+offset_right = 1165.0
+offset_bottom = 648.0
+color = Color(0.07450981, 0, 0.21568628, 1)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1142389343]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1824172901]
+shape = SubResource("WorldBoundaryShape2D_lb0ug")
+
+[node name="Player" parent="." unique_id=448040387 instance=ExtResource("1_3lcnc")]
+position = Vector2(566, 505)
+
+[node name="Telescope" type="Area2D" parent="." unique_id=1875088675]
+script = ExtResource("2_lb0ug")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Telescope" unique_id=1776319864]
+position = Vector2(1077, 569)
+shape = SubResource("CircleShape2D_niujx")
+
+[node name="Sprite2D" type="Sprite2D" parent="Telescope" unique_id=1895994903]
+position = Vector2(974, 519)
+texture = ExtResource("2_qd2op")
+
+[node name="Label" type="Label" parent="Telescope" unique_id=1100144500]
+offset_left = 960.0
+offset_top = 437.0
+offset_right = 1000.0
+offset_bottom = 460.0
+text = "OYE AQUI"
+
+[node name="Galileo" type="Area2D" parent="." unique_id=1950455586]
+script = ExtResource("4_lb0ug")
+
+[node name="Sprite2D" type="Sprite2D" parent="Galileo" unique_id=1689956281]
+position = Vector2(129, 503)
+texture = ExtResource("2_qd2op")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Galileo" unique_id=1892403981]
+position = Vector2(122, 495)
+shape = SubResource("CapsuleShape2D_niujx")
+
+[node name="Label" type="Label" parent="Galileo" unique_id=1017256377]
+offset_left = 64.0
+offset_top = 416.0
+offset_right = 188.0
+offset_bottom = 439.0
+text = "GALILEOdadada"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Galileo" unique_id=1998173764]
+
+[node name="DialogBox" type="Panel" parent="Galileo/CanvasLayer" unique_id=1823620137]
+offset_left = 180.0
+offset_top = 449.0
+offset_right = 220.0
+offset_bottom = 489.0
+
+[node name="Label" type="Label" parent="Galileo/CanvasLayer/DialogBox" unique_id=385129245]
+layout_mode = 0
+offset_left = -22.0
+offset_top = 47.0
+offset_right = 88.0
+offset_bottom = 70.0
+text = "DAdadadadad"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1957123519]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=2042283067]
+offset_right = 1166.0
+offset_bottom = 646.0
+color = Color(0, 0, 0, 0)
+
+[connection signal="body_entered" from="Telescope" to="Telescope" method="_on_body_entered"]
+[connection signal="body_exited" from="Telescope" to="Telescope" method="_on_body_exited"]
+[connection signal="body_entered" from="Galileo" to="Galileo" method="_on_body_entered"]
+[connection signal="body_exited" from="Galileo" to="Galileo" method="_on_body_exited"]
