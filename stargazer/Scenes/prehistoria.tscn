@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://8km5a5aevkf0" path="res://Scenes/prehistoria.gd" id="1_vdkgi"]
 [ext_resource type="PackedScene" uid="uid://b0w4joxr8ocih" path="res://Scenes/player.tscn" id="1_veicj"]
 [ext_resource type="Script" uid="uid://cfnf2klud1d4w" path="res://Scenes/fire.gd" id="2_ohnt3"]
+[ext_resource type="Texture2D" uid="uid://c7o2earepei4n" path="res://icon.svg" id="4_lig06"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kqgln"]
 distance = -63.0
@@ -17,38 +18,54 @@ script = ExtResource("1_vdkgi")
 position = Vector2(-46, 96)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=2008768401]
-position = Vector2(233, -29)
+position = Vector2(217, 488)
 shape = SubResource("WorldBoundaryShape2D_kqgln")
 debug_color = Color(0.8768841, 0.00040949642, 0.83314246, 0.41960785)
 
 [node name="ColorRect" type="ColorRect" parent="Ground" unique_id=281621579]
-offset_left = 57.0
-offset_top = 32.0
-offset_right = 430.0
-offset_bottom = 72.0
+offset_left = 44.0
+offset_top = 551.0
+offset_right = 417.0
+offset_bottom = 591.0
 color = Color(0.6280156, 0.38854486, 0.16276956, 1)
 
 [node name="Player" parent="." unique_id=448040387 instance=ExtResource("1_veicj")]
-position = Vector2(78, 14)
+position = Vector2(66, 571)
 
 [node name="Fire" type="Area2D" parent="." unique_id=1994444179]
-position = Vector2(372, 103)
+visible = false
+position = Vector2(395, 48)
 script = ExtResource("2_ohnt3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Fire" unique_id=1852120020]
+position = Vector2(677, 518)
 shape = SubResource("CircleShape2D_vdkgi")
 
 [node name="Label" type="Label" parent="Fire" unique_id=1947810619]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 514.0
+offset_top = 540.0
+offset_right = 590.0
+offset_bottom = 563.0
 text = "Fireeeeee"
+metadata/_edit_use_anchors_ = true
 
 [node name="Label2" type="Label" parent="Fire" unique_id=1155410945]
-offset_left = -38.0
-offset_top = -94.0
-offset_right = 45.0
-offset_bottom = -71.0
+offset_left = 515.0
+offset_top = 450.0
+offset_right = 598.0
+offset_bottom = 473.0
 text = "Press yada"
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Fire" unique_id=487961946]
+position = Vector2(671, 525)
+texture = ExtResource("4_lig06")
+
+[node name="Lightning" type="ColorRect" parent="." unique_id=67063141]
+visible = false
+offset_right = 1177.0
+offset_bottom = 655.0
+color = Color(0.9490196, 0.9490196, 0.9490196, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2113735897]
 

@@ -30,6 +30,7 @@ func _process(delta):
 		else:
 			$CanvasLayer/DialogBox/Label.text = "BEYOND STARS WE MIGHT GO"
 			$CanvasLayer/DialogBox.visible = true
+			await get_tree().create_timer(1.5).timeout
 			$"../Player".visible = false
 			await get_tree().create_timer(3.0).timeout
 			$CanvasLayer/DialogBox.visible = false
